@@ -1,0 +1,276 @@
+/* css/addPet.css */
+/* ===== Base ===== */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background-color: #FFF9F5;
+  color: #333;
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Form layout */
+.add-pet-form {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+/* Left column (form) */
+.left-col {
+  flex: 1;
+  background: #fff;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 600px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.add-pet-form input[type="text"],
+.add-pet-form input[type="number"],
+.add-pet-form input[type="file"],
+.add-pet-form select,
+.add-pet-form textarea {
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 2px solid #e2e8f0;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  background: #f8fafc;
+}
+
+.add-pet-form input:focus,
+.add-pet-form select:focus,
+.add-pet-form textarea:focus {
+  outline: none;
+  border-color: #6DBE81;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(109, 190, 129, 0.1);
+}
+
+.add-pet-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Location section */
+.location-section {
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 12px;
+  border: 2px solid #e2e8f0;
+}
+
+.location-section h3 {
+  margin: 0 0 15px 0;
+  color: #3B7A57;
+  font-size: 1.1em;
+}
+
+.location-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.auto-coordinates {
+  background: rgba(109, 190, 129, 0.1);
+  padding: 12px 15px;
+  border-radius: 8px;
+  font-size: 0.85em;
+  color: #4a5568;
+  border-left: 4px solid #6DBE81;
+}
+
+/* Coords row */
+.coords-row {
+  display: flex;
+  gap: 12px;
+}
+.coords-row > div { 
+  flex: 1; 
+}
+
+/* Right column (map) */
+.right-col {
+  flex: 1;
+  max-width: 400px;
+  position: sticky;
+  top: 30px;
+}
+
+.map-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.map-card h3 {
+  margin: 0 0 15px 0;
+  color: #3B7A57;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+#map {
+  height: 300px;
+  border-radius: 12px;
+  border: 2px solid #e2e8f0;
+}
+
+/* Small helper */
+.map-hint {
+  font-size: 0.85em;
+  color: #718096;
+  margin-top: 12px;
+  line-height: 1.4;
+}
+
+/* Form actions */
+.form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  justify-content: flex-end;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  min-width: 100px;
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, #3B7A57, #6DBE81);
+  color: #fff;
+}
+
+.btn.primary:hover {
+  background: linear-gradient(135deg, #2E5D43, #5CAF75);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 122, 87, 0.3);
+}
+
+.btn.cancel {
+  background: #f8f9fa;
+  color: #4a5568;
+  border: 2px solid #e2e8f0;
+}
+
+.btn.cancel:hover {
+  background: #e2e8f0;
+  transform: translateY(-2px);
+}
+
+/* Error box */
+.error-box {
+  background: #fed7d7;
+  border: 2px solid #feb2b2;
+  color: #c53030;
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin: 0 0 25px 0;
+  font-weight: 500;
+}
+
+/* Price input styling */
+#priceInput {
+  transition: all 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .add-pet-form {
+    flex-direction: column;
+  }
+  
+  .right-col {
+    max-width: 100%;
+    position: static;
+  }
+  
+  .left-col {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+    padding: 20px 15px;
+  }
+  
+  .sidebar {
+    position: fixed;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+  }
+  
+  .sidebar.mobile-open {
+    transform: translateX(0);
+  }
+  
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .location-inputs {
+    grid-template-columns: 1fr;
+  }
+  
+  .coords-row {
+    flex-direction: column;
+  }
+  
+  .navbar {
+    margin-bottom: 20px;
+  }
+  
+  .mobile-menu-btn {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #3B7A57;
+  }
+}
+
+@media (max-width: 480px) {
+  .left-col,
+  .map-card {
+    padding: 15px;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+}

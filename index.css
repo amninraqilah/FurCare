@@ -1,0 +1,375 @@
+/* index.css - FurCare Professional Styles */
+:root {
+  --primary-green: #4CAF87;
+  --dark-green: #2E7D5A;
+  --light-green: #E8F5E9;
+  --soft-pink: #FADADD;
+  --warm-cream: #FFF5EB;
+  --dark-text: #2D3748;
+  --medium-text: #4A5568;
+  --light-text: #718096;
+  --white: #FFFFFF;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --border-radius: 12px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--white);
+  color: var(--dark-text);
+  line-height: 1.6;
+}
+
+/* === NAVBAR STYLES === */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2.5rem;
+  background-color: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.nav-left .logo {
+  font-size: 2rem;
+  color: var(--primary-green);
+  font-weight: 700;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-right {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--medium-text);
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+  position: relative;
+  font-size: 0.95rem;
+}
+
+.nav-link:hover {
+  color: var(--primary-green);
+  background-color: var(--light-green);
+  transform: translateY(-2px);
+}
+
+/* === HERO SECTION === */
+.hero {
+  background: linear-gradient(135deg, var(--soft-pink) 0%, var(--light-green) 100%);
+  padding: 6rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(76, 175, 135, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(250, 218, 221, 0.1) 0%, transparent 50%);
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--dark-text);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  color: var(--medium-text);
+  margin-bottom: 2rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* === BUTTON STYLES === */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background-color: var(--primary-green);
+  color: var(--white);
+  border: none;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+
+.btn:hover {
+  background-color: var(--dark-green);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* === ABOUT SECTION === */
+.about {
+  padding: 5rem 2rem;
+  background-color: var(--white);
+  text-align: center;
+}
+
+.about h2 {
+  color: var(--primary-green);
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.about p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  color: var(--medium-text);
+  line-height: 1.8;
+}
+
+/* === FEATURES SECTION === */
+.features {
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, var(--light-green) 0%, var(--white) 100%);
+}
+
+.features h2 {
+  color: var(--primary-green);
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.feature-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature {
+  background-color: var(--white);
+  padding: 2.5rem 2rem;
+  border-radius: var(--border-radius);
+  width: 100%;
+  max-width: 350px;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid rgba(76, 175, 135, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.feature::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-green), var(--soft-pink));
+}
+
+.feature:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--primary-green);
+}
+
+.feature h3 {
+  color: var(--primary-green);
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.feature p {
+  color: var(--medium-text);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* === FOOTER === */
+.footer {
+  background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary-green) 100%);
+  text-align: center;
+  padding: 3rem 2rem;
+  color: var(--white);
+  margin-top: 4rem;
+}
+
+.footer p {
+  margin: 0;
+  opacity: 0.9;
+  font-size: 1rem;
+}
+
+/* === UTILITY CLASSES === */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem 1.5rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .nav-right {
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .nav-link {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .hero {
+    padding: 4rem 1.5rem;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero p {
+    font-size: 1.1rem;
+  }
+  
+  .about, .features {
+    padding: 3rem 1.5rem;
+  }
+  
+  .about h2, .features h2 {
+    font-size: 2rem;
+  }
+  
+  .feature-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .feature {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+  }
+  
+  .about h2, .features h2 {
+    font-size: 1.8rem;
+  }
+  
+  .feature {
+    padding: 2rem 1.5rem;
+  }
+  
+  .feature h3 {
+    font-size: 1.2rem;
+  }
+}
+
+/* === ANIMATIONS === */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-content, .about, .feature {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.feature:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.feature:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* === ACTIVE NAV LINK STYLES === */
+.nav-link.active {
+  color: var(--primary-green);
+  font-weight: 600;
+  background-color: var(--light-green);
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 1rem;
+  right: 1rem;
+  height: 2px;
+  background-color: var(--primary-green);
+}

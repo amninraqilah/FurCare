@@ -1,0 +1,497 @@
+/* myPets.css */
+.title {
+  font-size: 2.2em;
+  color: #3B7A57;
+  margin-bottom: 10px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.pets-container {
+  padding: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -50px;
+}
+
+.pets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 380px));
+  gap: 30px;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* Common styles untuk semua pet card */
+.pet-card {
+  background: white;
+  border-radius: 16px;
+  padding: 0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  border-left: 4px solid #ff7a2d;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Khas untuk regular pets */
+.regular-pet-card {
+  min-height: 550px;
+}
+
+/* Khas untuk Pet Sit */
+.pet-sit-card {
+  min-height: 650px;
+}
+
+.pet-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+
+/* Image Container dengan badges di atas */
+.pet-image-container {
+  position: relative;
+  width: 100%;
+  height: 220px;
+}
+
+.pet-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-bottom: 3px solid #f8f9fa;
+}
+
+/* Badges position di atas gambar */
+.post-type-indicator {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 0.75em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  z-index: 3;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.post-type-indicator.post-type-petsit {
+  background: linear-gradient(135deg, #3B7A57, #4CAF50);
+}
+
+.post-type-indicator.post-type-adopt {
+  background: linear-gradient(135deg, #2196F3, #03A9F4);
+}
+
+.approval-status {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 6px 12px;
+  border-radius: 15px;
+  font-size: 0.7em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  z-index: 3;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  color: white;
+}
+
+.status-approved {
+  background: linear-gradient(135deg, #48bb78, #38a169);
+}
+
+.status-pending {
+  background: linear-gradient(135deg, #ed8936, #dd6b20);
+}
+
+.status-rejected {
+  background: linear-gradient(135deg, #e53e3e, #c53030);
+}
+
+/* Content area yang lebih besar */
+.pet-content {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.pet-name {
+  font-size: 1.4em;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #2d3748;
+  line-height: 1.3;
+  text-align: center;
+}
+
+/* Pet Details dengan better spacing */
+.pet-details {
+  margin-bottom: 15px;
+  flex: 1;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 6px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.detail-label {
+  font-weight: 600;
+  color: #4a5568;
+  font-size: 0.85em;
+  min-width: 90px;
+}
+
+.detail-value {
+  color: #2d3748;
+  font-size: 0.9em;
+  text-align: right;
+  flex: 1;
+  margin-left: 10px;
+}
+
+.price-highlight {
+  color: #ff7a2d;
+  font-weight: 700;
+  background: rgba(255, 122, 45, 0.1);
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 122, 45, 0.2);
+}
+
+.sit-period-info {
+  background: #f8f9fa;
+  padding: 10px 12px;
+  border-radius: 6px;
+  margin: 10px 0;
+  font-size: 0.9em;
+  border-left: 3px solid #3B7A57;
+}
+
+.sit-period-info .period-dates {
+  font-weight: bold;
+  color: #333;
+}
+
+.sit-period-info .period-days {
+  color: #666;
+  font-size: 0.85em;
+}
+
+.pet-status {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 20px;
+  font-size: 0.8em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 10px 0;
+  text-align: center;
+  width: auto;
+}
+
+.status-available { 
+  background: linear-gradient(135deg, #48bb78, #38a169); 
+  color: white; 
+}
+.status-adopted { 
+  background: linear-gradient(135deg, #e53e3e, #c53030); 
+  color: white; 
+}
+.status-overdue { 
+  background: linear-gradient(135deg, #ed8936, #dd6b20); 
+  color: white; 
+}
+.status-petsit { 
+  background: linear-gradient(135deg, #4299e1, #3182ce); 
+  color: white; 
+}
+
+/* Pet Actions yang lebih besar dan jelas */
+.pet-actions {
+  margin-top: auto;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  padding-top: 15px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.btn {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 0.9em;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-align: center;
+  flex: 1;
+  min-width: 80px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-edit {
+  background: linear-gradient(135deg, #ff7a2d, #ff6a00);
+}
+
+.btn-edit:hover {
+  background: linear-gradient(135deg, #ff6a00, #e55a00);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 122, 45, 0.3);
+}
+
+.btn-view {
+  background: linear-gradient(135deg, #28a745, #219a3b);
+}
+
+.btn-view:hover {
+  background: linear-gradient(135deg, #219a3b, #1e8e36);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+}
+
+.btn-delete {
+  background: linear-gradient(135deg, #dc3545, #c82333);
+}
+
+.btn-delete:hover {
+  background: linear-gradient(135deg, #c82333, #bd2130);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 40px;
+  color: #718096;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  margin: 40px auto;
+  max-width: 500px;
+  width: 100%;
+}
+
+.empty-state img {
+  width: 120px;
+  margin-bottom: 25px;
+  opacity: 0.6;
+}
+
+.empty-state h3 {
+  font-size: 1.5em;
+  color: #4a5568;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.empty-state p {
+  font-size: 1em;
+  color: #718096;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.btn-post-first {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #B19CD9;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 400;
+  font-size: smaller;
+  font-family: arial,sans-serif;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(177, 156, 217, 0.3);
+}
+
+.btn-post-first:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(177, 156, 217, 0.4);
+  background: linear-gradient(135deg, #A28BCF, #FFA7B6);
+}
+
+/* Toast Notification Styles */
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: white;
+  padding: 16px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border-left: 4px solid #48bb78;
+  display: none;
+  z-index: 1000;
+  animation: slideInRight 0.3s ease-out;
+  max-width: 350px;
+}
+
+.toast.success {
+  border-left-color: #48bb78;
+}
+
+.toast.warning {
+  border-left-color: #ed8936;
+}
+
+.toast.error {
+  border-left-color: #e53e3e;
+}
+
+.toast-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.toast-icon {
+  font-size: 1.2em;
+}
+
+.toast-message {
+  flex: 1;
+  font-size: 0.9em;
+  color: #2d3748;
+}
+
+.toast-close {
+  background: none;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
+  color: #718096;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toast-close:hover {
+  color: #2d3748;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.toast.hide {
+  animation: slideOutRight 0.3s ease-in forwards;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .pets-container {
+    padding: 20px 15px;
+  }
+  
+  .pets-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+  }
+  
+  .pet-actions {
+    flex-direction: column;
+  }
+  
+  .btn {
+    padding: 14px 16px;
+  }
+  
+  .empty-state {
+    padding: 40px 20px;
+    margin: 20px auto;
+  }
+  
+  .detail-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .detail-value {
+    text-align: left;
+    margin-left: 0;
+  }
+
+  .toast {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    max-width: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .pet-card {
+    min-height: 500px;
+  }
+  
+  .pet-image-container {
+    height: 200px;
+  }
+  
+  .pet-name {
+    font-size: 1.3em;
+  }
+  
+  .pets-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .pet-content {
+    padding: 15px;
+  }
+}

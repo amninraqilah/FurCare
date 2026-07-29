@@ -1,0 +1,479 @@
+/* ===== PET DETAILS PAGE ===== */
+body {
+    margin: 0;
+    background: linear-gradient(135deg, #FFF5F5 0%, #FFE6E6 100%);
+    /* ✅ PINK GRADIENT */
+    color: #333;
+    min-height: 100vh;
+    transition: 0.3s;
+}
+
+#map {
+    height: 250px;
+    width: 100%;
+    border-radius: 12px;
+    margin-top: 10px;
+    z-index: 1;
+}
+
+/* ✅ Ensure map tiles load properly */
+.leaflet-container {
+    background: #f8f9fa;
+}
+
+/* ✅ Approval Status Styles */
+.approval-status {
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.status-approved {
+    background: #48bb78;
+    color: white;
+}
+
+.status-pending {
+    background: #ed8936;
+    color: white;
+}
+
+.status-rejected {
+    background: #e53e3e;
+    color: white;
+}
+
+.admin-info {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 15px 0;
+    border-left: 4px solid #6c757d;
+}
+
+.pet-details-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: start;
+}
+
+/* ===== IMAGE SECTION ===== */
+.pet-image-section {
+    position: sticky;
+    top: 20px;
+}
+
+.main-pet-image {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.main-pet-image:hover {
+    transform: scale(1.02);
+}
+
+/* ===== INFO SECTION ===== */
+.pet-info-section {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e2e8f0;
+}
+
+.pet-info-section h1 {
+    font-size: 2.5em;
+    color: #2d3748;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+/* ===== POST TYPE BADGE ===== */
+.post-type-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-size: 0.9em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.post-type-badge.adopt {
+    background: linear-gradient(135deg, #48bb78, #38a169);
+    color: white;
+}
+
+.post-type-badge.pet-sit {
+    background: linear-gradient(135deg, #4299e1, #3182ce);
+    color: white;
+}
+
+/* ===== BASIC INFO GRID ===== */
+.basic-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #f8fafc;
+    border-radius: 12px;
+    border-left: 4px solid #6DBE81;
+}
+
+.basic-info p {
+    margin: 0;
+    font-size: 1em;
+    color: #4a5568;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.basic-info strong {
+    color: #2d3748;
+    min-width: 80px;
+}
+
+/* Status Styles */
+.status-available {
+    color: #48bb78;
+    font-weight: 600;
+    padding: 4px 12px;
+    background: #f0fff4;
+    border-radius: 20px;
+    border: 1px solid #c6f6d5;
+}
+
+.status-adopted {
+    color: #e53e3e;
+    font-weight: 600;
+    padding: 4px 12px;
+    background: #fed7d7;
+    border-radius: 20px;
+    border: 1px solid #feb2b2;
+}
+
+/* ===== LOCATION SECTION ===== */
+.location-info {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #fff8f0;
+    border-radius: 12px;
+    border-left: 4px solid #ed8936;
+}
+
+.location-info h3 {
+    color: #2d3748;
+    margin-bottom: 10px;
+    font-size: 1.3em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.location-info p {
+    color: #4a5568;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+#map {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== DESCRIPTION SECTION ===== */
+.description {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #f0f9ff;
+    border-radius: 12px;
+    border-left: 4px solid #4299e1;
+}
+
+.description h3 {
+    color: #2d3748;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.description p {
+    color: #4a5568;
+    line-height: 1.7;
+    font-size: 1.05em;
+    margin: 0;
+}
+
+/* ===== OWNER INFO SECTION ===== */
+.owner-info {
+    margin-bottom: 30px;
+    padding: 25px;
+    background: #f0fff4;
+    border-radius: 12px;
+    border-left: 4px solid #48bb78;
+}
+
+.owner-info h3 {
+    color: #2d3748;
+    margin-bottom: 20px;
+    font-size: 1.3em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.owner-details {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.owner-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #e2e8f0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.owner-details div p {
+    margin: 5px 0;
+    color: #4a5568;
+    font-size: 1em;
+}
+
+.owner-details div p:first-child {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 8px;
+}
+
+/* ===== ACTION BUTTONS ===== */
+.action-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 20px;
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1em;
+    gap: 8px;
+}
+
+.btn.primary {
+    background: linear-gradient(135deg, #FFB6C1, #FF6F91);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 111, 145, 0.3);
+}
+
+.btn.primary:hover {
+    background: linear-gradient(135deg, #FF6F91, #FF477E);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 111, 145, 0.4);
+}
+
+.btn.secondary {
+    background: linear-gradient(135deg, #A0E7A0, #3B7A57);
+    color: white;
+    box-shadow: 0 4px 15px rgba(59, 122, 87, 0.3);
+}
+
+.btn.secondary:hover {
+    background: linear-gradient(135deg, #3B7A57, #2C5530);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(59, 122, 87, 0.4);
+}
+
+.btn.outline {
+    background: white;
+    color: #4a5568;
+    border: 2px solid #e2e8f0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.btn.outline:hover {
+    background: #f7fafc;
+    border-color: #cbd5e0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== META INFO ===== */
+.pet-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #f1f5f9;
+}
+
+.post-date {
+    color: #718096;
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.views-count {
+    color: #718096;
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 968px) {
+    .pet-details-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .pet-image-section {
+        position: static;
+    }
+
+    .main-pet-image {
+        height: 400px;
+    }
+
+    .basic-info {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .pet-details-container {
+        margin: 20px auto;
+        padding: 0 15px;
+    }
+
+    .pet-info-section {
+        padding: 20px;
+    }
+
+    .pet-info-section h1 {
+        font-size: 2em;
+    }
+
+    .main-pet-image {
+        height: 300px;
+    }
+
+    .action-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .owner-details {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .basic-info,
+    .location-info,
+    .description,
+    .owner-info {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pet-info-section h1 {
+        font-size: 1.7em;
+    }
+
+    .main-pet-image {
+        height: 250px;
+    }
+
+    .btn {
+        padding: 12px 16px;
+        font-size: 0.9em;
+    }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.pet-info-section {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.pet-image-section {
+    animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+/* ===== LOADING STATES ===== */
+.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #6DBE81;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}

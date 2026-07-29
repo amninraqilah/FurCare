@@ -1,0 +1,165 @@
+/* ===== Base ===== */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background-color: #FFF9F5;
+  color: #333;
+  display: flex;
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+  width: 240px;
+  height: 100vh;
+  background: linear-gradient(180deg, #FFDFC8 0%, #FFD4EC 100%);
+  padding: 22px;
+  box-sizing: border-box;
+  color: #5A4A42;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  border-right: 2px solid #F2C9C1; /* soft pastel border */
+  box-shadow: 4px 0 12px rgba(0,0,0,0.08);
+}
+
+.sidebar .logo {
+  margin: 0 0 28px;
+  font-size: 1.9em;
+  font-weight: 700;
+  text-align: center;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+/* Menu items */
+.sidebar a {
+  display: block;
+  padding: 12px 15px;
+  margin: 6px 0;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #5A4A42;
+  background: rgba(255,255,255,0.25);
+  transition: 0.25s ease;
+}
+
+/* Hover */
+.sidebar a:hover {
+  background: rgba(255, 255, 255, 0.45);
+  transform: translateX(4px);
+}
+
+/* Active */
+.sidebar a.active {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid #f6cae6;
+  padding-left: 10px;
+}
+
+/* Logout */
+.sidebar a.logout {
+  margin-top: auto;
+  background: rgba(255, 140, 100, 0.25);
+  color: #A13F22;
+}
+
+.sidebar a.logout:hover {
+  background: rgba(255, 140, 100, 0.4);
+}
+
+/* ===== Main Content ===== */
+.main-content {
+  flex: 1;
+    padding: 30px;
+    margin-left: 280px; /* Sidebar width (240px) + padding (40px) */
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar h1 {
+  color: #3B7A57;
+  margin: 0;
+}
+
+.profile-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #C57BAA;
+}
+
+/* ===== Cards ===== */
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 40px;
+  justify-content: center;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  padding: 25px;
+  text-align: center;
+  width: 260px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+}
+
+.card.green h3 { color: #3B7A57; }
+.card.pink h3 { color: #FF6F91; }
+
+.card p {
+  color: #777;
+  font-size: 0.95em;
+  margin-bottom: 20px;
+}
+
+/* ===== Buttons ===== */
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 0.9em;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn.green {
+  background-color: #6DBE81;
+  color: #fff;
+}
+.btn.green:hover {
+  background-color: #3B7A57;
+}
+
+.btn.pink {
+  background-color: #FFB6C1;
+  color: #fff;
+}
+.btn.pink:hover {
+  background-color: #FF6F91;
+}

@@ -1,0 +1,495 @@
+/* ===== Tabs Styling ===== */
+.tabs {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.tab {
+    padding: 12px 24px;
+    background: #f8f9fa;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.tab.active {
+    background: white;
+    border-bottom-color: #6DBE81;
+    color: #6DBE81;
+}
+
+.tab:hover {
+    background: #e9ecef;
+}
+
+.tab-badge {
+    background: #6c757d;
+    color: white;
+    border-radius: 12px;
+    padding: 2px 8px;
+    font-size: 0.8em;
+    margin-left: 6px;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* ===== Approval Status Styling ===== */
+.approval-status {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.75em;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status-approved {
+    background: #48bb78;
+    color: white;
+}
+
+.status-pending {
+    background: #ed8936;
+    color: white;
+}
+
+.status-rejected {
+    background: #e53e3e;
+    color: white;
+}
+
+/* ===== Approval Actions Styling ===== */
+.approval-actions {
+    display: inline-block;
+    gap: 6px;
+}
+
+.btn-approve {
+    background: #48bb78;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8em;
+    transition: 0.3s;
+}
+
+.btn-approve:hover {
+    background: #3a9c63;
+    transform: scale(1.05);
+}
+
+.btn-reject {
+    background: #e53e3e;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8em;
+    transition: 0.3s;
+}
+
+.btn-reject:hover {
+    background: #c53030;
+    transform: scale(1.05);
+}
+
+/* ===== Rejection Form Styling ===== */
+.rejection-form {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 4px;
+    border: 1px solid #e0e0e0;
+}
+
+.rejection-form textarea {
+    width: 80%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8em;
+}
+
+/* ===== Action Buttons Vertical ===== */
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 0;
+}
+
+.action-buttons a {
+    text-decoration: none;
+    width: 70px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* ===== Base ===== */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background-color: #FFF9F5;
+    color: #333;
+    display: flex;
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+  width: 240px;
+  height: 100vh;
+  background: linear-gradient(180deg, #FFDFC8 0%, #FFD4EC 100%);
+  padding: 22px;
+  box-sizing: border-box;
+  color: #5A4A42;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  border-right: 2px solid #F2C9C1; /* soft pastel border */
+  box-shadow: 4px 0 12px rgba(0,0,0,0.08);
+}
+
+.sidebar .logo {
+  margin: 0 0 28px;
+  font-size: 1.9em;
+  font-weight: 700;
+  text-align: center;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+/* Menu items */
+.sidebar a {
+  display: block;
+  padding: 12px 15px;
+  margin: 6px 0;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #5A4A42;
+  background: rgba(255,255,255,0.25);
+  transition: 0.25s ease;
+}
+
+/* Hover */
+.sidebar a:hover {
+  background: rgba(255, 255, 255, 0.45);
+  transform: translateX(4px);
+}
+
+/* Active */
+.sidebar a.active {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid #f6cae6;
+  padding-left: 10px;
+}
+
+/* Logout */
+.sidebar a.logout {
+  margin-top: auto;
+  background: rgba(255, 140, 100, 0.25);
+  color: #A13F22;
+}
+
+.sidebar a.logout:hover {
+  background: rgba(255, 140, 100, 0.4);
+}
+
+/* ===== Main Content ===== */
+.main-content {
+    flex: 1;
+    padding: 30px;
+    margin-left: 280px;
+    /* Sidebar width (240px) + padding (40px) */
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar h1,
+.main-content h2 {
+    color: #3B7A57;
+    margin: 0;
+    font-weight: 600;
+}
+
+.profile-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #C57BAA;
+}
+
+/* ===== Buttons ===== */
+.add-btn {
+    background: linear-gradient(45deg, #3B7A57, #6DBE81);
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+    margin: 20px 0;
+}
+
+.add-btn:hover {
+    background: linear-gradient(45deg, #FF6F91, #FFB6C1);
+    transform: scale(1.05);
+}
+
+/* ===== Table ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-size: 13px;
+}
+
+table th,
+table td {
+    padding: 10px 8px;
+    text-align: left;
+}
+
+table th {
+    background: #3B7A57;
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+table tr:nth-child(even) {
+    background: #F9F9F9;
+}
+
+table tr:hover {
+    background: #FFEEF4;
+}
+
+/* ===== Action Buttons ===== */
+.edit-btn {
+    background-color: #FFB74D;
+    color: #fff;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 11px;
+    transition: 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    min-width: 40px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.edit-btn:hover {
+    background-color: #FB8C00;
+    transform: scale(1.05);
+}
+
+.delete-btn {
+    background-color: #FF6F91;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 11px;
+    transition: 0.3s;
+    display: inline-block;
+    min-width: 40px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.delete-btn:hover {
+    background-color: #C62828;
+    transform: scale(1.05);
+}
+
+/* Khusus untuk action column */
+table th:last-child,
+table td:last-child {
+    padding: 8px 4px;
+    width: 120px;
+    min-width: 120px;
+    text-align: center;
+}
+
+/* ===== Post Type Badges ===== */
+.post-type {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    min-width: 60px;
+}
+
+.post-type.adopt {
+    background: linear-gradient(45deg, #4CAF50, #66BB6A);
+    color: white;
+}
+
+.post-type.pet-sit {
+    background: linear-gradient(45deg, #2196F3, #42A5F5);
+    color: white;
+}
+
+/* ===== Price Styling ===== */
+.price-display {
+    font-weight: bold;
+    color: #3B7A57;
+    font-size: 12px;
+}
+
+.price-na {
+    color: #999;
+    font-style: italic;
+    font-size: 11px;
+}
+
+/* ===== Status Badges ===== */
+.status {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    min-width: 70px;
+}
+
+.status.available {
+    background: linear-gradient(45deg, #4CAF50, #66BB6A);
+    color: white;
+}
+
+.status.adopted {
+    background: linear-gradient(45deg, #FF6F91, #FF8FA3);
+    color: white;
+}
+
+.status.rehome {
+    background: linear-gradient(45deg, #FFB74D, #FFCC80);
+    color: white;
+}
+
+.status.pet-sit {
+    background: linear-gradient(45deg, #2196F3, #42A5F5);
+    color: white;
+}
+
+/* ===== Image Styling ===== */
+.pet-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 6px;
+    object-fit: cover;
+    border: 2px solid #e0e0e0;
+}
+
+/* Center align untuk Post Type dan Price columns */
+table th:nth-child(9),
+table th:nth-child(10),
+table td:nth-child(9),
+table td:nth-child(10) {
+    text-align: center;
+}
+
+/* ===== Success/Error Messages ===== */
+.success-message {
+    background: #d4edda;
+    color: #155724;
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    border: 1px solid #c3e6cb;
+}
+
+.error-message {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    border: 1px solid #f5c6cb;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 0;
+        padding: 15px;
+    }
+
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .tabs {
+        flex-direction: column;
+    }
+
+    .tab {
+        width: 100%;
+        text-align: left;
+    }
+
+    table {
+        font-size: 11px;
+    }
+
+    table th,
+    table td {
+        padding: 6px 4px;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        gap: 3px;
+    }
+
+    .action-buttons a {
+        width: 60px;
+        font-size: 10px;
+        padding: 3px 6px;
+    }
+}

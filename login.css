@@ -1,0 +1,91 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #F9F0EC;
+  color: #333;
+}
+
+.login-container {
+  max-width: 400px;
+  margin: 100px auto;
+  background-color: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.login-container h2 {
+  margin-bottom: 25px;
+  color: #3B7A57;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.login-form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1em;
+}
+
+.login-form label {
+  text-align: left;
+  font-weight: 500;
+  color: #333;
+}
+
+.btn.full {
+  width: 100%;
+  background-color: #6DBE81;
+  color: white;
+  border: none;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 12px;
+  transition: 0.3s;
+}
+
+.btn.full:hover {
+  background-color: #3B7A57;
+  cursor: pointer;
+}
+
+.small-text {
+  margin-top: 10px;
+  font-size: 0.9em;
+}
+
+/* Additional styles for messages */
+.message-container {
+  max-width: 400px;
+  margin: -10px 0 15px 0; /* Kurangkan margin top, tambah margin bottom */
+  padding: 0 15px;
+}
+
+.success-message {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 12px 15px;
+  border: 1px solid #c3e6cb;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 12px 15px;
+  border: 1px solid #f5c6cb;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-size: 0.9em;
+  text-align: center;
+}

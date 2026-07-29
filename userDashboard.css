@@ -1,0 +1,957 @@
+/* ===== General ===== */
+.wallet-card {
+    background: #E8B7B7;
+    color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    margin-bottom: 25px;
+}
+
+.wallet-header h3 {
+    margin: 0 0 15px 0;
+    font-size: 1.3em;
+}
+
+.balance-amount {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.balance-label {
+    margin: 0;
+    opacity: 0.9;
+    font-size: 0.9em;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background-color: #FFF9F5;
+  color: #333;
+  transition: 0.3s;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  background: linear-gradient(90deg, #6DBE81, #FFB6C1);
+  color: #fff;
+  padding: 15px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  margin: 0;
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+.profile-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #fff;
+  transition: transform 0.3s;
+}
+
+.profile-icon:hover {
+  transform: scale(1.1);
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -260px;
+  width: 260px;
+  height: 100%;
+  background: #fff;
+  box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1);
+  transition: right 0.4s ease;
+  z-index: 1000;
+  padding-top: 70px;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.sidebar a {
+  display: block;
+  padding: 14px 25px;
+  text-decoration: none;
+  font-weight: 500;
+  color: #3B7A57;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+/* Hover Effect */
+.sidebar a:hover {
+  background: rgba(255, 111, 145, 0.1); /* soft transparent pink */
+  border: 1px solid rgba(255, 111, 145, 0.3); /* subtle pink border */
+  color: #3B7A57;
+  padding-left: 35px;
+}
+
+/* Active Link */
+.sidebar a.active {
+  background: rgba(255, 111, 145, 0.2); /* slightly stronger transparent pink */
+  border: 1px solid rgba(255, 111, 145, 0.5); /* slightly stronger border */
+  color: #3B7A57; /* font putih */
+  padding-left: 35px;
+}
+
+/* Logout link */
+.sidebar .logout {
+  color: #FF6F91;
+  font-weight: bold;
+}
+
+.close-btn {
+  font-size: 26px;
+  color: #3B7A57;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close-btn:hover {
+  color: #FF6F91;
+}
+
+/* Sidebar Open */
+body.sidebar-open .sidebar {
+  right: 0;
+}
+
+body.sidebar-open .overlay {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* ===== Overlay ===== */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(59, 122, 87, 0.3);
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s;
+  z-index: 500;
+}
+
+/* ===== Main Content ===== */
+.main-content {
+  padding: 40px 20px;
+  margin-top: -40px;
+}
+
+.container {
+  padding: 30px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 2.2em;
+  color: #3B7A57;
+  margin-bottom: 10px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 1.1em;
+  color: #718096;
+  margin-bottom: 40px;
+  text-align: center;
+  font-weight: 400;
+}
+
+/* ===== FILTERS SECTION (Like browsePet.css) ===== */
+.filters {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+}
+
+.search-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.search-container input {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.clear-btn {
+  padding: 12px 20px;
+  background: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.clear-btn:hover {
+  background: #5a6268;
+}
+
+.filter-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.filter-group select {
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  background: white;
+}
+
+/* ===== POST META STYLES (Like browsePet.css) ===== */
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-size: 0.9em;
+  color: #666;
+}
+
+.owner-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e0e0e0;
+}
+
+.owner-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.owner-name {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  color: #333;
+  font-size: 0.85em;
+}
+
+.post-date {
+  font-size: 0.75em;
+  color: #888;
+}
+
+.admin-badge {
+  background: #ff4444;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.7em;
+  margin-left: 4px;
+}
+
+.time-ago {
+  font-family: 'Poppins', sans-serif;
+  color: #888;
+  font-size: 0.75em;
+  margin-left: 4px;
+}
+
+.new-badge {
+  background: #ff4444;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.7em;
+  margin-left: 4px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+/* ===== PET GRID dengan fixed size (Like browsePet.css) ===== */
+.pet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* ✅ MORE FLEXIBLE */
+  gap: 25px;
+  justify-content: center;
+  justify-items: center;
+}
+
+/* ===== PET CARD dengan fixed dimensions (Like browsePet.css) ===== */
+.pet-card {
+  background: #ffffff;
+  font-family: 'Times New Roman', Times, serif;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 320px;
+  height: 520px;
+  display: flex;
+  flex-direction: column;
+}
+
+.pet-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  border-color: #cbd5e0;
+}
+
+/* ===== Fixed image height ===== */
+.pet-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  border: 2px solid #f7fafc;
+}
+
+.pet-name {
+  font-size: 1.3em;
+  color: #2d3748;
+  margin: 0 0 8px 0;
+  font-weight: 600;
+}
+
+/* Post Type Badge */
+.post-type-badge {
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 0.75em;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.post-type-badge.adopt {
+  background: #FFD1DC;
+  color: white;
+}
+
+.post-type-badge.pet-sit {
+  background: #7ebbec;
+  color: white;
+}
+
+.pet-info {
+  font-size: 0.9em;
+  color: #4a5568;
+  margin: 10px 0;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.pet-location {
+  font-size: 0.85em;
+  color: #90A4AE;
+  margin: 6px 0 12px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+/* ===== Description dengan limited height ===== */
+.pet-desc {
+  font-size: 0.85em;
+  color: #718096;
+  line-height: 1.5;
+  margin: 12px 0 16px;
+  padding: 12px;
+  background: #f7fafc;
+  border-radius: 8px;
+  border: 1px solid #b8a4b9;
+  flex: 1;
+  overflow: hidden;
+
+  /* ✅ Text clamping with fallback */
+  display: -webkit-box;
+  display: box; /* Old spec fallback */
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3; /* ✅ Standard property for future compatibility */
+}
+
+/* ===== Button group position ===== */
+.btn-group {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.btn {
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: 400;
+  font-size: 0.75em;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  flex: 1;
+  text-align: center;
+  min-width: 70px;
+}
+
+.adopt {
+  background: #FFB6C1;
+  color: white;
+}
+
+.btn.adopt:hover {
+  background: #FF99AA;
+  transform: translateY(-1px);
+}
+
+.sit {
+  background: #42A5F5;
+  color: white;
+}
+
+.sit:hover {
+  background: #1E88E5;
+  transform: translateY(-1px);
+}
+
+.details {
+  background: #718096;
+  color: white;
+}
+
+.details:hover {
+  background: #4a5568;
+  transform: translateY(-1px);
+}
+
+/* ===== No Pets State ===== */
+.no-pets {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 80px 20px;
+  color: #a0aec0;
+  font-size: 1.2em;
+  width: 100%;
+}
+
+.no-pets::before {
+  content: '🐾';
+  font-size: 4em;
+  display: block;
+  margin-bottom: 20px;
+  opacity: 0.6;
+}
+
+.no-results {
+  text-align: center;
+  padding: 60px 20px;
+  color: #666;
+  font-size: 18px;
+  display: none;
+  grid-column: 1 / -1;
+  width: 100%;
+}
+
+.no-results::before {
+  content: '🐾';
+  font-size: 3em;
+  display: block;
+  margin-bottom: 15px;
+  opacity: 0.6;
+}
+
+/* Status Indicator */
+.status-indicator {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #48bb78;
+}
+
+.status-indicator.available {
+  background: #48bb78;
+}
+
+.status-indicator.adopted {
+  background: #e53e3e;
+}
+
+/* Professional subtle animations */
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pet-card {
+  animation: cardAppear 0.5s ease forwards;
+}
+
+/* Professional hover effects */
+.pet-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 16px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.pet-card:hover::after {
+  opacity: 1;
+}
+
+/* ===== TOAST NOTIFICATION STYLES ===== */
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #ffffff;
+  color: #2d3748;
+  padding: 16px 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  z-index: 10000;
+  display: none;
+  animation: toastSlideIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  max-width: 380px;
+  min-width: 300px;
+  border-left: 5px solid #48bb78;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 0.95em;
+  line-height: 1.4;
+}
+
+/* Toast dengan warna berbeda untuk tipe yang berbeda */
+.toast.success {
+  border-left-color: #48bb78;
+  background: linear-gradient(135deg, #f0fff4, #ffffff);
+}
+
+.toast.warning {
+  border-left-color: #ed8936;
+  background: linear-gradient(135deg, #fffaf0, #ffffff);
+}
+
+.toast.error {
+  border-left-color: #e53e3e;
+  background: linear-gradient(135deg, #fff5f5, #ffffff);
+}
+
+.toast.info {
+  border-left-color: #4299e1;
+  background: linear-gradient(135deg, #ebf8ff, #ffffff);
+}
+
+/* Toast dengan icon */
+.toast::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+/* Animasi untuk toast */
+@keyframes toastSlideIn {
+  from {
+    transform: translateX(400px) scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes toastSlideOut {
+  from {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(400px) scale(0.8);
+    opacity: 0;
+  }
+}
+
+@keyframes toastPulse {
+  0% {
+    box-shadow: 0 8px 30px rgba(72, 187, 120, 0.3);
+  }
+  50% {
+    box-shadow: 0 8px 40px rgba(72, 187, 120, 0.5);
+  }
+  100% {
+    box-shadow: 0 8px 30px rgba(72, 187, 120, 0.3);
+  }
+}
+
+/* State untuk toast */
+.toast.show {
+  display: block;
+  animation: toastSlideIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.toast.hide {
+  animation: toastSlideOut 0.3s ease-in forwards;
+}
+
+.toast.pulse {
+  animation: toastPulse 2s infinite;
+}
+
+/* Toast progress bar (optional) */
+.toast.with-progress::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: currentColor;
+  opacity: 0.3;
+  animation: toastProgress 4s linear forwards;
+}
+
+@keyframes toastProgress {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+/* Toast close button */
+.toast-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #a0aec0;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.toast-close:hover {
+  background: #f7fafc;
+  color: #718096;
+  transform: scale(1.1);
+}
+
+/* Toast container untuk multiple toasts */
+.toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Toast dengan content yang lebih kompleks */
+.toast-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.toast-icon {
+  font-size: 1.2em;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.toast-message {
+  flex: 1;
+  font-size: 0.9em;
+  color: #2d3748;
+}
+
+.toast-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #2d3748;
+}
+
+.toast-description {
+  font-size: 0.85em;
+  color: #718096;
+  margin-top: 4px;
+}
+
+/* Toast types dengan variasi visual */
+.toast-type-adopt {
+  border-left-color: #ed8936;
+  background: linear-gradient(135deg, #fffaf0, #ffffff);
+}
+
+.toast-type-pet-sit {
+  border-left-color: #4299e1;
+  background: linear-gradient(135deg, #ebf8ff, #ffffff);
+}
+
+.toast-type-admin {
+  border-left-color: #9f7aea;
+  background: linear-gradient(135deg, #faf5ff, #ffffff);
+}
+
+/* Toast dengan auto-hide progress indicator */
+.toast-auto-hide {
+  position: relative;
+  overflow: hidden;
+}
+
+.toast-auto-hide::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #48bb78, #38b2ac);
+  animation: toastAutoHide 5s linear forwards;
+}
+
+@keyframes toastAutoHide {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+/* ===== Profile Styles ===== */
+.profile-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.profile-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.phone-form {
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.form-group small {
+    color: #666;
+    font-size: 0.85em;
+}
+
+.warning-box {
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    color: #856404;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.warning-box ul {
+    margin: 10px 0 0 20px;
+}
+
+.owner-profile {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.login-prompt {
+    background: #e9ecef;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.not-available {
+    color: #6c757d;
+    font-style: italic;
+}
+
+.back-link {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px 15px;
+  }
+  
+  .title {
+    font-size: 1.8em;
+  }
+  
+  .subtitle {
+    font-size: 1em;
+    margin-bottom: 30px;
+  }
+  
+  .pet-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 300px));
+    gap: 20px;
+  }
+  
+  .pet-card {
+    padding: 18px;
+    height: 500px;
+    max-width: 300px;
+  }
+  
+  .pet-image {
+    height: 160px;
+  }
+  
+  .btn-group {
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .btn {
+    padding: 10px 14px;
+    font-size: 0.8em;
+  }
+
+  /* Toast responsive */
+  .toast {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    max-width: none;
+    min-width: auto;
+    margin: 0 10px;
+  }
+  
+  .toast-container {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.6em;
+  }
+  
+  .pet-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .pet-card {
+    margin: 0 5px;
+    max-width: 100%;
+  }
+  
+  .pet-image {
+    height: 140px;
+  }
+
+  /* Toast responsive */
+  .toast {
+    padding: 14px 16px;
+    font-size: 0.9em;
+  }
+  
+  .toast-content {
+    gap: 10px;
+  }
+  
+  .toast-icon {
+    font-size: 1.1em;
+  }
+}
